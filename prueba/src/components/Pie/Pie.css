@@ -1,0 +1,21 @@
+footer{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: black;
+    color: white;
+    font-family: 'Montserrat';
+    min-height: 50px;
+    line-height: 2;
+}
+  
+footer p{
+    padding: 10px;
+}
+
+.logoPie img{
+    height: 150px;
+}
+
+ul{
+    height: 80px;
+}
