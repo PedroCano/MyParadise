@@ -1,4 +1,4 @@
-footer{
+/* footer{
     display: flex;
     justify-content: space-evenly;
     background-color: black;
@@ -19,3 +19,94 @@ footer p{
 ul{
     height: 80px;
 }
+
+a:link, a:visited, a:active {
+    text-decoration:none;
+    color: white;
+}
+
+a:hover{
+    color: #FB642B;
+} */
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    background-color: black;
+    min-height: 200px;
+  }
+  
+  footer ul{
+    padding: 0;
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 17px;
+    font-weight: 300;
+    margin: 20px;
+  }
+  
+  footer li{
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+  
+  footer a {
+    font-weight: 500;
+    background: linear-gradient(to right, #FB642B, #FB642B 50%, white 50%);
+  }
+  
+  footer a{
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+  }
+  
+  footer a {
+    transition: background-position 275ms ease;
+  }
+  
+  footer a:hover {
+    background-position: 0 100%;
+  }
+  
+  .logoPie img{
+    width: 150px;
+    margin: 20px;
+  }
+
+@media (max-width: 950px){
+    .logoPie{
+      width: 100%;
+      text-align: center;
+    }
+  
+    footer ul{
+      margin: 20px;
+    }
+  }
+
+@media (max-width: 570px){
+    footer{
+      flex-direction: column;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+  
+    footer ul{
+      margin-top: 30px;
+    }
+  
+    .pie1{
+      width: 70%;
+      border-bottom: 1px solid #FB642B;
+    }
+  
+    .pie2{
+      width: 70%;
+      border-bottom: 1px solid #FB642B;
+    }
+  }

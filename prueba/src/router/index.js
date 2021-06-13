@@ -14,7 +14,37 @@ const routes = [
   {
     path: '/design',
     name: 'Design',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Design.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/design/Design.vue')
+  },
+  {
+    path: '/design2',
+    name: 'Design2',
+    component: () => import(/* webpackChunkName: "about" */ '../views/design/Design2.vue')
+  },
+  {
+    path: '/design3',
+    name: 'Design3',
+    component: () => import(/* webpackChunkName: "about" */ '../views/design/Design3.vue')
+  },
+  {
+    path: '/design4',
+    name: 'Design4',
+    component: () => import(/* webpackChunkName: "about" */ '../views/design/Design4.vue')
+  },
+  {
+    path: '/design5',
+    name: 'Design5',
+    component: () => import(/* webpackChunkName: "about" */ '../views/design/Design5.vue')
+  },
+  {
+    path: '/design6',
+    name: 'Design6',
+    component: () => import(/* webpackChunkName: "about" */ '../views/design/Design6.vue')
+  },
+  {
+    path: '/design7',
+    name: 'Design7',
+    component: () => import(/* webpackChunkName: "about" */ '../views/design/Design7.vue')
   },
   {
     path: '/login',
@@ -25,6 +55,16 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: () => import(/* webpackChunkName: "about" */ '../views/auth/Register.vue')
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Contact.vue')
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]
 

@@ -1,7 +1,7 @@
 <template>
 	<template v-if="user">
-		<div class="nav">
-			<h1>MY PARADISE</h1>
+		<div class="nav">			
+     		<h1>MY PARADISE</h1>
 			<div class="buttons">
 				<form class="loginForm" @submit.prevent="logout">
 					<button class="login">Cerrar sesión</button>
@@ -25,7 +25,77 @@
 		<div class="destacados">
 			<h1>DESTACADOS</h1>
 		</div>
-		<div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+		<div class="CSSgal">
+
+			<!-- Don't wrap targets in parent -->
+			<s id="s1"></s>
+			<s id="s2"></s>
+			<s id="s3"></s>
+			<s id="s4"></s>
+
+			<div class="slider">
+				<div>
+					<div class="imagen"></div>
+					<div class="info">
+						<h1>CODING HOUSE</h1>
+						<h3><i>Migue Blanca</i></h3>
+						<p>
+							Casa de bamboo modernista pensada para un grupo de programadores expertos, con el fin de que puedan realizar su actividad profesional con 
+							las mayores calidades posibles.
+						</p>
+					</div>
+				</div>
+				<div class="gallery-cell2">
+					<div class="imagen2"></div>
+					<div class="info">
+						<h1>CHALET VELETA</h1>
+						<h3><i>Migue Blanca</i></h3>
+						<p>
+							Chalet veraniego con materiales de alta calidad. Un lugar en el que poder disfrutar de un retiro espiritual, de unas vacaciones con 
+							amigos y/o familia o simplemente una escapada de fin de semana. Listo para cualquier época del año.
+						</p>
+					</div>
+				</div>
+				<div class="gallery-cell3">
+					<div class="imagen3"></div>
+					<div class="info">
+						<h1>ROCA DORADA</h1>
+						<h3><i>Migue Blanca</i></h3>
+						<p>
+							Vivienda inspirada en las tres famosas egipcias, fabricada en roca caliza polvorienta cargadas por innumerables grupos de personas, 
+							esclavas en su época con numerosos laberintos en su interior.
+						</p>
+					</div>
+				</div>
+				<div class="gallery-cell4">
+					<div class="imagen4"></div>
+					<div class="info">
+						<h1>MOLINO SUEÑO VERDE</h1>
+						<h3><i>Migue Blanca</i></h3>
+						<p>
+							Molino inspirado en los relatos de Don Quijote ahora más en la realidad que nunca. También preparado para en la época de la aceituna poder 
+							moler esta y dar a sus agricultores un aceite de la mayor calidad posible.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="prevNext">
+				<div><a href="#s4"></a><a href="#s2"></a></div>
+				<div><a href="#s1"></a><a href="#s3"></a></div>
+				<div><a href="#s2"></a><a href="#s4"></a></div>
+				<div><a href="#s3"></a><a href="#s1"></a></div>
+			</div>
+
+			<div class="bullets">
+				<a href="#s1">1</a>
+				<a href="#s2">2</a>
+				<a href="#s3">3</a>
+				<a href="#s4">4</a>
+			</div>
+
+		</div>
+		<!-- <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
 		  	<div class="gallery-cell">
 		  		<div class="imagen"></div>
 		  		<div class="info">
@@ -70,19 +140,14 @@
 		  			</p>
 		  		</div>
 		  	</div>
-		</div>
+		</div> -->
 		<div class="contenido">	
-			<div class="botones">		
-				<a href="#">Diseña tu casa</a>		
-				<a href="#">Diseños</a>
-				<a href="#">Blog</a>
-			</div>
-			<h1>DISEÑOS RECIENTES</h1>
+			<h1>TODOS LOS PROYECTOS</h1>
 			<div class="diseños">
 				<div class="diseño">
-					<a href="/projects">
+					<router-link to="/design6">
 						<div class="diseñoImg"></div>
-					</a>
+					</router-link>
 					<div class="texto">
 						<h2>Iglesia Fuente Divina</h2>
 						<h3>Migue Blanca</h3>
@@ -93,7 +158,7 @@
 						<h2>Cantina Whiskey</h2>
 						<h3>Migue Blanca</h3>
 					</div>
-					<router-link to="/design">
+					<router-link to="/design4">
 						<div class="diseñoImg2"></div>
 					</router-link>
 				</div>
@@ -111,8 +176,35 @@
 						<h2>Chalet Veleta</h2>
 						<h3>Migue Blanca</h3>
 					</div>
-					<router-link to="/design">
+					<router-link to="/design5">
 						<div class="diseñoImg4"></div>
+					</router-link>
+				</div>
+				<div class="diseño">
+					<div class="texto">
+						<h2>Roca dorada</h2>
+						<h3>Migue Blanca</h3>
+					</div>
+					<router-link to="/design2">
+						<div class="diseñoImg5"></div>
+					</router-link>
+				</div>
+				<div class="diseño">
+					<div class="texto">
+						<h2>Coding house</h2>
+						<h3>Migue Blanca</h3>
+					</div>
+					<router-link to="/design3">
+						<div class="diseñoImg6"></div>
+					</router-link>
+				</div>
+				<div class="diseño">
+					<div class="texto">
+						<h2>Molino sueño verde</h2>
+						<h3>Migue Blanca</h3>
+					</div>
+					<router-link to="/design7">
+						<div class="diseñoImg7"></div>
 					</router-link>
 				</div>
 			</div>		
@@ -207,7 +299,7 @@ body{
 	font-family: 'Montserrat';
   	font-size: 2.5em;
   	font-weight: 600;
-    color: #ffb629;
+    color: #FB642B;
     text-align: center;
 }
 
@@ -216,7 +308,8 @@ body{
 	font-family: 'Montserrat';
   	font-size: 2.5em;
   	font-weight: 600;
-    color: #ffb629;
+    color: #45769e;
+	text-decoration: none;
 }
 
 .search{
@@ -254,7 +347,7 @@ body{
 
 .login{
 	font-family: 'Montserrat';
-	background-color: #ffb629;
+	background-color: #FB642B;
 	border-radius: 20px;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -286,7 +379,7 @@ body{
 }
 
 .login:hover{
-	background-color: #DC9E24;
+	background-color: #d85626;
 }
 
 .register:hover{
@@ -346,17 +439,212 @@ body{
   background-image: url("../assets/7.jpeg");
 }
 
+/* * {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+html,
+body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	font: 16px/1.3 sans-serif;
+} */
+
+/*
+PURE RESPONSIVE CSS3 SLIDESHOW GALLERY by Roko C. buljan
+http://stackoverflow.com/a/34696029/383904
+*/
+
+.CSSgal {
+	position: relative;
+	overflow: hidden;
+	height: 100%; /* Or set a fixed height */
+	margin: 20px;
+}
+
+/* SLIDER */
+
+.CSSgal .slider {
+	height: 100%;
+	white-space: nowrap;
+	font-size: 0;
+	transition: 0.8s;
+}
+
+/* SLIDES */
+
+.CSSgal .slider > * {
+	font-size: 1rem;
+	display: inline-block;
+	white-space: normal;
+	vertical-align: top;
+	height: 100%;
+	width: 100%;
+	background: none 50% no-repeat;
+	background-size: cover;
+}
+
+/* PREV/NEXT, CONTAINERS & ANCHORS */
+
+.CSSgal .prevNext {
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	width: 100%;
+	height: 0;
+}
+
+.CSSgal .prevNext > div + div {
+	visibility: hidden; /* Hide all but first P/N container */
+}
+
+.CSSgal .prevNext a {
+	background: #FB642B;
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	line-height: 60px; /* If you want to place numbers */
+	text-align: center;
+	opacity: 0.7;
+	-webkit-transition: 0.3s;
+	transition: 0.3s;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	left: 0;
+}
+.CSSgal .prevNext a:hover {
+	opacity: 1;
+}
+.CSSgal .prevNext a + a {
+	left: auto;
+	right: 0;
+}
+
+/* NAVIGATION */
+
+.CSSgal .bullets {
+	position: absolute;
+	z-index: 2;
+	bottom: 0;
+	padding: 10px 0;
+	margin-top: 30px;
+	width: 100%;
+	text-align: center;
+}
+.CSSgal .bullets > a {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-decoration: none;
+	text-align: center;
+	background: rgba(255, 255, 255, 1);
+	-webkit-transition: 0.3s;
+	transition: 0.3s;
+}
+.CSSgal .bullets > a + a {
+	background: rgba(255, 255, 255, 0.5); /* Dim all but first */
+}
+.CSSgal .bullets > a:hover {
+	background: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* NAVIGATION BUTTONS */
+/* ALL: */
+.CSSgal > s:target ~ .bullets > * {
+	background: rgba(255, 255, 255, 0.5);
+}
+/* ACTIVE */
+#s1:target ~ .bullets > *:nth-child(1) {
+	background: rgba(255, 255, 255, 1);
+}
+#s2:target ~ .bullets > *:nth-child(2) {
+	background: rgba(255, 255, 255, 1);
+}
+#s3:target ~ .bullets > *:nth-child(3) {
+	background: rgba(255, 255, 255, 1);
+}
+#s4:target ~ .bullets > *:nth-child(4) {
+	background: rgba(255, 255, 255, 1);
+}
+/* More slides? Add here more rules */
+
+/* PREV/NEXT CONTAINERS VISIBILITY */
+/* ALL: */
+.CSSgal > s:target ~ .prevNext > * {
+	visibility: hidden;
+}
+/* ACTIVE: */
+#s1:target ~ .prevNext > *:nth-child(1) {
+	visibility: visible;
+}
+#s2:target ~ .prevNext > *:nth-child(2) {
+	visibility: visible;
+}
+#s3:target ~ .prevNext > *:nth-child(3) {
+	visibility: visible;
+}
+#s4:target ~ .prevNext > *:nth-child(4) {
+	visibility: visible;
+}
+/* More slides? Add here more rules */
+
+/* SLIDER ANIMATION POSITIONS */
+
+#s1:target ~ .slider {
+	transform: translateX(0%);
+	-webkit-transform: translateX(0%);
+}
+#s2:target ~ .slider {
+	transform: translateX(-100%);
+	-webkit-transform: translateX(-100%);
+}
+#s3:target ~ .slider {
+	transform: translateX(-200%);
+	-webkit-transform: translateX(-200%);
+}
+#s4:target ~ .slider {
+	transform: translateX(-300%);
+	-webkit-transform: translateX(-300%);
+}
+/* More slides? Add here more rules */
+
+/* YOU'RE THE DESIGNER! 
+   ____________________
+   All above was mainly to get it working :)
+   CSSgal CUSTOM STYLES / OVERRIDES HERE: */
+
+.CSSgal {
+	color: #fff;
+	text-align: center;
+}
+.CSSgal .slider h2 {
+	margin-top: 40vh;
+	font-weight: 200;
+	letter-spacing: -0.06em;
+	word-spacing: 0.2em;
+	font-size: 3em;
+}
+.CSSgal a {
+	border-radius: 50%;
+	margin: 0 3px;
+	color: rgba(0, 0, 0, 0.8);
+	text-decoration: none;
+}
+
 .info{
   height: 200px;
   width: 90%;
   margin-left: 5%;
   margin-top: 20px;
-  overflow: auto;	
-  color: white;
+  margin-bottom: 20px;
+  overflow: auto;
+  color: black;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-	text-shadow: 1px 1px 2px black;
 }
 
 .info h1{
@@ -413,7 +701,7 @@ body{
 	font-family: 'Montserrat';
   	font-size: 2.5em;
   	font-weight: 600;
-    color: #ffb629;
+    color: #FB642B;
     text-align: center;
     margin-top: 60px;
 }
@@ -432,7 +720,7 @@ body{
 	margin-bottom: 50px;
 }
 
-.diseñoImg,.diseñoImg2,.diseñoImg3,.diseñoImg4{
+.diseñoImg,.diseñoImg2,.diseñoImg3,.diseñoImg4,.diseñoImg5,.diseñoImg6,.diseñoImg7{
 	width: 550px;
 	height: 250px;
 	background-size: cover;
@@ -454,6 +742,18 @@ body{
 
 .diseñoImg4{
 	background-image: url("../assets/5.jpeg");
+}
+
+.diseñoImg5{
+	background-image: url("../assets/2.jpeg");
+}
+
+.diseñoImg6{
+	background-image: url("../assets/3.jpeg");
+}
+
+.diseñoImg7{
+	background-image: url("../assets/7.jpeg");
 }
 
 .texto{
@@ -493,7 +793,7 @@ footer h1{
 	font-family: 'Montserrat';
   	font-size: 2.5em;
   	font-weight: 600;
-    color: #ffb629;
+    color: #FB642B;
 }
 
 footer ul{
@@ -526,7 +826,20 @@ footer ul{
 	font-family: 'Montserrat';
 	line-height: 1.6;
   	font-weight: 400;
-	color: #ffb629;
+	color: #FB642B;
+}
+
+@media (max-width: 1525px){
+  .diseñoImg,.diseñoImg2,.diseñoImg3,.diseñoImg4,.diseñoImg5,.diseñoImg6,.diseñoImg7{
+	  order: 1;
+  }
+
+  .texto{
+	  order: 2;
+	  text-align: center;
+	  margin-top: 30px;
+	  margin-bottom: 50px;
+  }
 }
 
 @media (max-width: 840px){
@@ -542,6 +855,10 @@ footer ul{
   .buttons{
 	  width: 100%;
 	  justify-content: space-evenly;
+  }
+
+  .diseñoImg,.diseñoImg2,.diseñoImg3,.diseñoImg4,.diseñoImg5,.diseñoImg6,.diseñoImg7{
+	  width: 40vh;
   }
 }
 </style>

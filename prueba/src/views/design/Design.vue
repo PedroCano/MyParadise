@@ -1,0 +1,376 @@
+<template>
+    <template v-if="user">
+		<div class="nav">
+			<h1>MY PARADISE</h1>
+			<div class="buttons">
+				<form class="loginForm" @submit.prevent="logout">
+					<button class="login">Cerrar sesión</button>
+				</form>
+			</div>
+		</div>
+	</template>
+	<template v-else>
+    	<div class="nav">
+			<h1>MY PARADISE</h1>
+			<div class="buttons">
+				<router-link to="/login">
+					<a class="login">Iniciar Sesión</a>
+				</router-link>
+				<router-link to="/register">
+					<a class="register">Registrarse</a>
+				</router-link>
+			</div>
+		</div>
+	</template>
+		<div class="diseño">
+			<div class="imagen">
+				<img src="../../assets/1.jpeg">
+			</div>
+			<div class="contenido">
+				<h1>CASA FLANDERS</h1>
+				<img src="../../assets/plans.jpg">
+				<p> 
+					Una casa normal, para tener techo aunque sea y preparada para cualquier lugar debido a su alta calidad de materiales con la que estaría fabricada.
+					<br><br>
+					Es una casa prrfabricada lo que ofrece una mayor rapidez a la hora de poder vivir en ella si se necesita.
+					<br><br>
+					Las casas prefabricadas son un producto industrializado, que permite construir casas ensamblando elementos modulares previamente fabricados, sin tener en cuenta el suelo 
+					en el que va a asentarse, por lo que hay que construir antes una losa de hormigón armado o un sistema de soportes que sirva de cimentación, apoyo y anclaje del conjunto.<br>
+					Estos sistemas aplicados a todo tipo de estructuras son propios de la construcción masiva y repetitiva. En la época soviética de Rusia se utilizaron profusamente los elementos 
+					prefabricados en la edificación.
+				</p>
+			</div>
+			<template v-if="user">
+				<div class="constructoras">
+					<h1>PRESUSPUESTOS</h1>
+					<div class="constructora">
+						<img src="../../assets/constructora1.png">
+						<div class="texto">
+							<p>Arquicasas</p>
+							<p>Precio: 100000€</p>
+						</div>
+					</div>
+					<div class="constructora">
+						<img src="../../assets/constructora2.png">
+						<div class="texto">
+							<p>Arquiproject</p>
+							<p>Precio: 110000€</p>
+						</div>
+					</div>
+				</div>
+			</template>
+		</div>
+    <pie />
+</template>
+
+<script>
+// @ is an alias to /src
+import Pie from '@/components/Pie/Pie.vue'
+import firebase from 'firebase'
+
+export default {
+	data() {
+		return {
+			isOpen: false,
+			user: null
+		}
+	},
+	components: {
+		Pie,
+	},
+	methods: {
+		toggleMenu () {
+			const status = !this.isOpen;
+			this.isOpen = status;
+		},
+		logout(){
+			firebase.auth().signOut().then(() => {
+				this.$router.push({name: 'Projects'})
+			});
+		}
+	},
+	created() {
+		firebase.auth().onAuthStateChanged(user => {
+			if(user){
+				this.user = user;
+			}else{
+				this.user = null;
+			}
+		})
+	},
+}
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&display=swap');
+
+html{
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+body{
+	width: 80%;
+	margin: 0 auto;
+	margin-left: 10%;
+}
+
+html, .nav{
+	background-color: #75c9e3;
+}
+
+body{
+	background-color: white;
+}
+
+.nav{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: row;
+	min-height: 150px;
+}
+
+.buttons{
+	display: flex;
+	margin-left: auto;
+	width: 50%;
+	justify-content: flex-end;
+}
+
+.nav h1{
+	font-family: 'Montserrat';
+  	font-size: 2.5em;
+  	font-weight: 600;
+    color: #ffb629;
+}
+
+.search{
+	width: 30%;
+        padding: 12px 24px;
+
+        background-color: transparent;
+        transition: transform 250ms ease-in-out;
+        font-size: 14px;
+        line-height: 18px;
+        
+        color: #575756;
+        background-color: transparent;
+/*         background-image: url(http://mihaeltomic.com/codepen/input-search/ic_search_black_24px.svg); */
+ 
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: 18px 18px;
+        background-position: 95% center;
+        border-radius: 50px;
+        border: 1px solid #575756;
+        transition: all 250ms ease-in-out;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+}
+
+.search:hover, .search:focus{
+	padding: 12px 0;
+            outline: 0;
+            border: 1px solid transparent;
+            border-bottom: 1px solid #575756;
+            border-radius: 0;
+            background-position: 100% center;
+}
+
+.login{
+	font-family: 'Montserrat';
+	background-color: #ffb629;
+	border-radius: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border: none;
+	color: white;
+	font-size: 0.9em;
+	text-decoration: none;
+	margin-right: 80px;
+}
+
+.register{
+	font-family: 'Montserrat';
+	background-color: #288990;
+	border-radius: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border: none;
+	color: white;
+	font-size: 0.9em;
+	text-decoration: none;
+}
+
+.login:hover, .register:hover{
+	cursor: pointer;
+}
+
+.login:hover{
+	background-color: #DC9E24;
+}
+
+.register:hover{
+	background-color: #206D73;	
+}
+
+.imagen{
+	background-image: url('../../assets/1022105.jpg');
+	height: 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 30px;
+}
+
+.imagen img{
+	width: 500px;
+}
+
+.contenido{
+	width: 90%;
+	margin-left: 5%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin-bottom: 50px;
+}
+
+.contenido h1{
+	font-family: 'Montserrat';
+  	font-size: 2.5em;
+  	font-weight: 600;
+    color: #ffb629;
+	text-align: center;
+	margin-top: 80px;
+	margin-bottom: 60px;
+}
+
+.contenido p{
+	width: 75%;
+	margin-left: 12.5%;
+	font-family: 'Montserrat';
+	line-height: 1.6;
+  	font-weight: 300;
+	text-align: center;
+	margin-top: 60px;
+}
+
+.constructoras{
+	display: flex;
+	flex-wrap: wrap;
+	width: 80%;
+	margin-left: 10%;
+	justify-content: space-around;
+}
+
+.constructoras h1{
+	font-family: 'Montserrat';
+  	font-size: 2.5em;
+  	font-weight: 600;
+    color: #ffb629;
+	text-align: center;
+	margin-bottom: 40px;
+	width: 100%;
+}
+
+.constructora{
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.constructora img{
+	max-width: 200px;
+}
+
+.texto{
+	margin-top: auto;
+	font-family: 'Montserrat';
+	line-height: 1.3;
+  	font-weight: 300;
+	text-align: center;
+}
+
+footer{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 200px;
+	background-color: #45769e;
+	margin-top: 60px;
+}
+
+footer h1{
+	font-family: 'Montserrat';
+  	font-size: 2.5em;
+  	font-weight: 600;
+    color: #ffb629;
+}
+
+footer ul{
+	text-decoration: none;
+	padding: 0;
+	list-style-type: none;
+}
+
+.footer2 h3{
+	margin: 0;
+	font-family: 'Montserrat';
+	line-height: 1.3;
+  	font-weight: 600;
+	color: white;
+}
+
+.footer3 h3{
+	margin: 0;
+	font-family: 'Montserrat';
+	line-height: 1.3;
+  	font-weight: 600;
+	color: white;
+}
+
+.footer2, .footer3{
+	height: 150px;
+}
+
+.footer2, .footer3 li{
+	font-family: 'Montserrat';
+	line-height: 1.6;
+  	font-weight: 400;
+	color: #ffb629;
+}
+
+@media (max-width: 1100px){
+  .imagen img{
+	  width: 350px;
+  }
+
+}
+
+@media (max-width: 840px){
+  .nav{
+    flex-direction: column;
+	padding-bottom: 50px;
+  }
+
+  .nav h1{
+	  margin-bottom: 0;
+  }
+
+  .buttons{
+	  width: 100%;
+	  justify-content: space-evenly;
+  }
+
+}
+</style>
